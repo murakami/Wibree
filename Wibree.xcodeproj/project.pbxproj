@@ -14,6 +14,7 @@
 		564F120F1D9AA785008FA5E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 564F120D1D9AA785008FA5E3 /* LaunchScreen.storyboard */; };
 		564F121A1D9AA785008FA5E3 /* WibreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564F12191D9AA785008FA5E3 /* WibreeTests.swift */; };
 		564F12251D9AA785008FA5E3 /* WibreeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564F12241D9AA785008FA5E3 /* WibreeUITests.swift */; };
+		564F12331D9ABA00008FA5E3 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564F12321D9ABA00008FA5E3 /* Document.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		564F12201D9AA785008FA5E3 /* WibreeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WibreeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		564F12241D9AA785008FA5E3 /* WibreeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WibreeUITests.swift; sourceTree = "<group>"; };
 		564F12261D9AA785008FA5E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		564F12321D9ABA00008FA5E3 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				564F12041D9AA785008FA5E3 /* AppDelegate.swift */,
 				564F12061D9AA785008FA5E3 /* ViewController.swift */,
+				564F12321D9ABA00008FA5E3 /* Document.swift */,
 				564F12081D9AA785008FA5E3 /* Main.storyboard */,
 				564F120B1D9AA785008FA5E3 /* Assets.xcassets */,
 				564F120D1D9AA785008FA5E3 /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 			files = (
 				564F12071D9AA785008FA5E3 /* ViewController.swift in Sources */,
 				564F12051D9AA785008FA5E3 /* AppDelegate.swift in Sources */,
+				564F12331D9ABA00008FA5E3 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +509,7 @@
 				564F122B1D9AA785008FA5E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		564F122C1D9AA785008FA5E3 /* Build configuration list for PBXNativeTarget "WibreeTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +518,7 @@
 				564F122E1D9AA785008FA5E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		564F122F1D9AA785008FA5E3 /* Build configuration list for PBXNativeTarget "WibreeUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +527,7 @@
 				564F12311D9AA785008FA5E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
