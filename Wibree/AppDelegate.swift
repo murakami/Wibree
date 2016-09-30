@@ -3,7 +3,7 @@
 //  Wibree
 //
 //  Created by 村上幸雄 on 2016/09/27.
-//  Copyright © 2016年 Yukio MURAKAMI. All rights reserved.
+//  Copyright © 2016年 Bitz Co., Ltd. All rights reserved.
 //
 
 import UIKit

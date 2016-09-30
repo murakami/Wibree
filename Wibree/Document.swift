@@ -3,7 +3,7 @@
 //  Wibree
 //
 //  Created by 村上幸雄 on 2016/09/27.
-//  Copyright © 2016年 Yukio MURAKAMI. All rights reserved.
+//  Copyright © 2016年 Bitz Co., Ltd. All rights reserved.
 //
 
 import Foundation
@@ -15,7 +15,10 @@ class Document {
 
     var version: String
     
-    var uniqueIdentifier: String
+    private var _uniqueIdentifier: String
+    var uniqueIdentifier: String {
+        return _uniqueIdentifier
+    }
     
     static let sharedInstance: Document = {
         let instance = Document()
@@ -26,7 +29,7 @@ class Document {
         let infoDictionary = Bundle.main.infoDictionary! as Dictionary
         self.version = infoDictionary["CFBundleShortVersionString"]! as! String
         
-        uniqueIdentifier = ""
+        self._uniqueIdentifier = ""
     }
     
     func load() {
@@ -79,12 +82,12 @@ class Document {
         if versionString.compare(self.version) != .orderedSame {
             /* バージョン不一致対応 */
             clearDefaults()
-            self.uniqueIdentifier = UUID.init().uuidString
+            _uniqueIdentifier = UUID.init().uuidString
         }
         else {
             /* 読み出し */
             if userDefaults.object(forKey: "uniqueIdentifier") != nil {
-                uniqueIdentifier = userDefaults.object(forKey: "uniqueIdentifier") as! String
+                _uniqueIdentifier = userDefaults.object(forKey: "uniqueIdentifier") as! String
             }
         }
     }

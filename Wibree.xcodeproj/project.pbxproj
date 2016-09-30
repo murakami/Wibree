@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		564243271D9EA9C000648694 /* ResponseParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564243261D9EA9C000648694 /* ResponseParserProtocol.swift */; };
 		564F12051D9AA785008FA5E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564F12041D9AA785008FA5E3 /* AppDelegate.swift */; };
 		564F12071D9AA785008FA5E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564F12061D9AA785008FA5E3 /* ViewController.swift */; };
 		564F120A1D9AA785008FA5E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 564F12081D9AA785008FA5E3 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		564243261D9EA9C000648694 /* ResponseParserProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseParserProtocol.swift; sourceTree = "<group>"; };
 		564F12011D9AA785008FA5E3 /* Wibree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wibree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		564F12041D9AA785008FA5E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		564F12061D9AA785008FA5E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				564F12041D9AA785008FA5E3 /* AppDelegate.swift */,
 				564F12061D9AA785008FA5E3 /* ViewController.swift */,
 				564F12321D9ABA00008FA5E3 /* Document.swift */,
+				564243261D9EA9C000648694 /* ResponseParserProtocol.swift */,
 				564F12081D9AA785008FA5E3 /* Main.storyboard */,
 				564F120B1D9AA785008FA5E3 /* Assets.xcassets */,
 				564F120D1D9AA785008FA5E3 /* LaunchScreen.storyboard */,
@@ -192,7 +195,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = "Yukio MURAKAMI";
+				ORGANIZATIONNAME = "Bitz Co., Ltd.";
 				TargetAttributes = {
 					564F12001D9AA785008FA5E3 = {
 						CreatedOnToolsVersion = 8.0;
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				564F12071D9AA785008FA5E3 /* ViewController.swift in Sources */,
+				564243271D9EA9C000648694 /* ResponseParserProtocol.swift in Sources */,
 				564F12051D9AA785008FA5E3 /* AppDelegate.swift in Sources */,
 				564F12331D9ABA00008FA5E3 /* Document.swift in Sources */,
 			);
