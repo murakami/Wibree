@@ -16,6 +16,11 @@
 		564F121A1D9AA785008FA5E3 /* WibreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564F12191D9AA785008FA5E3 /* WibreeTests.swift */; };
 		564F12251D9AA785008FA5E3 /* WibreeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564F12241D9AA785008FA5E3 /* WibreeUITests.swift */; };
 		564F12331D9ABA00008FA5E3 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564F12321D9ABA00008FA5E3 /* Document.swift */; };
+		56B7EE891DA29DE600022467 /* Connector.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B7EE881DA29DE600022467 /* Connector.m */; };
+		56B7EE8C1DA29E5E00022467 /* WibreeCentralResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B7EE8B1DA29E5E00022467 /* WibreeCentralResponseParser.m */; };
+		56B7EE901DA29ED200022467 /* WibreePeripheralResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B7EE8F1DA29ED200022467 /* WibreePeripheralResponseParser.m */; };
+		56B7EE931DA29F0100022467 /* BeaconCentralResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B7EE921DA29F0100022467 /* BeaconCentralResponseParser.m */; };
+		56B7EE961DA29F4700022467 /* BeaconPeripheralResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B7EE951DA29F4700022467 /* BeaconPeripheralResponseParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,18 @@
 		564F12241D9AA785008FA5E3 /* WibreeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WibreeUITests.swift; sourceTree = "<group>"; };
 		564F12261D9AA785008FA5E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		564F12321D9ABA00008FA5E3 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		56B7EE871DA29DE500022467 /* Wibree-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wibree-Bridging-Header.h"; sourceTree = "<group>"; };
+		56B7EE881DA29DE600022467 /* Connector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connector.m; sourceTree = "<group>"; };
+		56B7EE8A1DA29E1000022467 /* Connector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Connector.h; sourceTree = "<group>"; };
+		56B7EE8B1DA29E5E00022467 /* WibreeCentralResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WibreeCentralResponseParser.m; sourceTree = "<group>"; };
+		56B7EE8D1DA29E6A00022467 /* WibreeCentralResponseParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WibreeCentralResponseParser.h; sourceTree = "<group>"; };
+		56B7EE8E1DA29EA600022467 /* WibreePeripheralResponseParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WibreePeripheralResponseParser.h; sourceTree = "<group>"; };
+		56B7EE8F1DA29ED200022467 /* WibreePeripheralResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WibreePeripheralResponseParser.m; sourceTree = "<group>"; };
+		56B7EE911DA29EF900022467 /* BeaconCentralResponseParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeaconCentralResponseParser.h; sourceTree = "<group>"; };
+		56B7EE921DA29F0100022467 /* BeaconCentralResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconCentralResponseParser.m; sourceTree = "<group>"; };
+		56B7EE941DA29F3F00022467 /* BeaconPeripheralResponseParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeaconPeripheralResponseParser.h; sourceTree = "<group>"; };
+		56B7EE951DA29F4700022467 /* BeaconPeripheralResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconPeripheralResponseParser.m; sourceTree = "<group>"; };
+		56B7EE971DA542F700022467 /* Wibree-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wibree-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +121,23 @@
 				564F12041D9AA785008FA5E3 /* AppDelegate.swift */,
 				564F12061D9AA785008FA5E3 /* ViewController.swift */,
 				564F12321D9ABA00008FA5E3 /* Document.swift */,
+				56B7EE8A1DA29E1000022467 /* Connector.h */,
+				56B7EE881DA29DE600022467 /* Connector.m */,
 				564243261D9EA9C000648694 /* ResponseParserProtocol.swift */,
+				56B7EE8D1DA29E6A00022467 /* WibreeCentralResponseParser.h */,
+				56B7EE8B1DA29E5E00022467 /* WibreeCentralResponseParser.m */,
+				56B7EE8E1DA29EA600022467 /* WibreePeripheralResponseParser.h */,
+				56B7EE8F1DA29ED200022467 /* WibreePeripheralResponseParser.m */,
+				56B7EE911DA29EF900022467 /* BeaconCentralResponseParser.h */,
+				56B7EE921DA29F0100022467 /* BeaconCentralResponseParser.m */,
+				56B7EE941DA29F3F00022467 /* BeaconPeripheralResponseParser.h */,
+				56B7EE951DA29F4700022467 /* BeaconPeripheralResponseParser.m */,
 				564F12081D9AA785008FA5E3 /* Main.storyboard */,
 				564F120B1D9AA785008FA5E3 /* Assets.xcassets */,
 				564F120D1D9AA785008FA5E3 /* LaunchScreen.storyboard */,
 				564F12101D9AA785008FA5E3 /* Info.plist */,
+				56B7EE871DA29DE500022467 /* Wibree-Bridging-Header.h */,
+				56B7EE971DA542F700022467 /* Wibree-Prefix.pch */,
 			);
 			path = Wibree;
 			sourceTree = "<group>";
@@ -199,6 +228,8 @@
 				TargetAttributes = {
 					564F12001D9AA785008FA5E3 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = XKY95WKF3J;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					564F12141D9AA785008FA5E3 = {
@@ -265,9 +296,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56B7EE901DA29ED200022467 /* WibreePeripheralResponseParser.m in Sources */,
 				564F12071D9AA785008FA5E3 /* ViewController.swift in Sources */,
+				56B7EE8C1DA29E5E00022467 /* WibreeCentralResponseParser.m in Sources */,
+				56B7EE891DA29DE600022467 /* Connector.m in Sources */,
 				564243271D9EA9C000648694 /* ResponseParserProtocol.swift in Sources */,
+				56B7EE931DA29F0100022467 /* BeaconCentralResponseParser.m in Sources */,
 				564F12051D9AA785008FA5E3 /* AppDelegate.swift in Sources */,
+				56B7EE961DA29F4700022467 /* BeaconPeripheralResponseParser.m in Sources */,
 				564F12331D9ABA00008FA5E3 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,10 +456,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = XKY95WKF3J;
+				GCC_PREFIX_HEADER = "Wibree/Wibree-Prefix.pch";
 				INFOPLIST_FILE = Wibree/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.bitz.Wibree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Wibree/Wibree-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -432,10 +473,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = XKY95WKF3J;
+				GCC_PREFIX_HEADER = "Wibree/Wibree-Prefix.pch";
 				INFOPLIST_FILE = Wibree/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.bitz.Wibree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Wibree/Wibree-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

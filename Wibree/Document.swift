@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Document {
-    let WIBREE_SERVICE_UUID = "EAD5D6C9-BFCF-44EE-91D4-45C2501456E2"
-    let WIBREE_CHARACTERISTIC_UUID = "22AD9740-FBED-44E8-9B7B-5F9A12974D2F"
-    let BEACON_SERVICE_UUID = "0AE4A21D-6096-4D71-8831-56A6FC7ACAB9"
+class Document: NSObject {
+    static let WIBREE_SERVICE_UUID = "EAD5D6C9-BFCF-44EE-91D4-45C2501456E2"
+    static let WIBREE_CHARACTERISTIC_UUID = "22AD9740-FBED-44E8-9B7B-5F9A12974D2F"
+    static let BEACON_SERVICE_UUID = "0AE4A21D-6096-4D71-8831-56A6FC7ACAB9"
 
     var version: String
     
@@ -25,7 +25,7 @@ class Document {
         return instance
     }()
 
-    private init() {
+    private override init() {
         let infoDictionary = Bundle.main.infoDictionary! as Dictionary
         self.version = infoDictionary["CFBundleShortVersionString"]! as! String
         
