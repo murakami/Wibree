@@ -20,7 +20,7 @@ typedef enum _WibreeCentralState {
     kWibreeCentralStateCanceled
 } WibreeCentralSate;
 
-typedef void (^WibreeCentralResponseParserCompletionHandler)(WibreeCentralResponseParser *parser, NSString *uniqueIdentifier);
+typedef void (^WibreeCentralResponseParserCompletionHandler)(WibreeCentralResponseParser * __nonnull parser, NSString * __nonnull uniqueIdentifier);
 
 @protocol WibreeCentralResponseParserDelegate <NSObject>
 - (void)wibreeCentralResponseParser:(WibreeCentralResponseParser *)parser didDiscoverUUID:(NSString *)uniqueIdentifier;

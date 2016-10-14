@@ -20,7 +20,7 @@ typedef enum _BeaconPeripheralState {
     kBeaconPeripheralStateCanceled
 } BeaconPeripheralSate;
 
-typedef void (^BeaconPeripheralResponseParserCompletionHandler)(BeaconPeripheralResponseParser *parser);
+typedef void (^BeaconPeripheralResponseParserCompletionHandler)(BeaconPeripheralResponseParser * __nonnull parser);
 
 @protocol BeaconPeripheralResponseParserDelegate <NSObject>
 - (void)beaconPeripheralResponseParser:(BeaconPeripheralResponseParser *)parser didFailWithError:(NSError*)error;

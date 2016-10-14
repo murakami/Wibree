@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                        forKeyPath: "networkAccessing",
                                        options: NSKeyValueObservingOptions(rawValue: UInt(0)),
                                        context: nil)
+        
+        if #available(iOS 10.0, *) {
+            let userNotificationCenter = UNUserNotificationCenter.current()
+            userNotificationCenter.requestAuthorization(options: [.badge, .sound, .alert], completionHandler: {
+                (granted, error) in
+                if let e = error {
+                    print(#function + "error(\(e))")
+                }
+                else if granted {
+                    print(#function + "通知許可")
+                }
+                else {
+                    print(#function + "通知拒否")
+                }
+            })
+        } else {
+            // Fallback on earlier versions
+        }
         return true
     }
 

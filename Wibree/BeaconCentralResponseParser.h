@@ -27,8 +27,8 @@ typedef enum _BeaconLocationState {
     kBeaconLocationStateDidRangeBeaconsInRegion
 } BeaconLocationState;
 
-typedef void (^BeaconCentralResponseParserCompletionHandler)(BeaconCentralResponseParser *parser);
-typedef void (^BeaconCentralResponseParserScanningHandler)(BeaconCentralResponseParser *parser, BeaconLocationState state, NSArray *beacons, CLRegion *region);
+typedef void (^BeaconCentralResponseParserCompletionHandler)(BeaconCentralResponseParser * __nonnull parser);
+typedef void (^BeaconCentralResponseParserScanningHandler)(BeaconCentralResponseParser * __nonnull parser, BeaconLocationState state, NSArray * __nonnull beacons, CLRegion * __nonnull region);
 
 @protocol BeaconCentralResponseParserDelegate <NSObject>
 - (void)beaconCentralResponseParser:(BeaconCentralResponseParser *)parser didEnterRegion:(CLRegion *)region;

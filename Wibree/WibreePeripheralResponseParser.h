@@ -20,7 +20,7 @@ typedef enum _WibreePeripheralState {
     kWibreePeripheralStateCanceled
 } WibreePeripheralSate;
 
-typedef void (^WibreePeripheralResponseParserCompletionHandler)(WibreePeripheralResponseParser *parser);
+typedef void (^WibreePeripheralResponseParserCompletionHandler)(WibreePeripheralResponseParser * __nonnull parser);
 
 @protocol WibreePeripheralResponseParserDelegate <NSObject>
 - (void)wibreePeripheralResponseParser:(WibreePeripheralResponseParser *)parser didFailWithError:(NSError*)error;

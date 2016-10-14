@@ -41,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5639E5AA1DAB884F00B5BC12 /* Wibree.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wibree.entitlements; sourceTree = "<group>"; };
 		564243261D9EA9C000648694 /* ResponseParserProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseParserProtocol.swift; sourceTree = "<group>"; };
 		564F12011D9AA785008FA5E3 /* Wibree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wibree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		564F12041D9AA785008FA5E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +96,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5639E5A71DAB884F00B5BC12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		564F11F81D9AA785008FA5E3 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +110,7 @@
 				564F12181D9AA785008FA5E3 /* WibreeTests */,
 				564F12231D9AA785008FA5E3 /* WibreeUITests */,
 				564F12021D9AA785008FA5E3 /* Products */,
+				5639E5A71DAB884F00B5BC12 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +127,7 @@
 		564F12031D9AA785008FA5E3 /* Wibree */ = {
 			isa = PBXGroup;
 			children = (
+				5639E5AA1DAB884F00B5BC12 /* Wibree.entitlements */,
 				564F12041D9AA785008FA5E3 /* AppDelegate.swift */,
 				564F12061D9AA785008FA5E3 /* ViewController.swift */,
 				564F12321D9ABA00008FA5E3 /* Document.swift */,
@@ -231,6 +241,14 @@
 						DevelopmentTeam = XKY95WKF3J;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.WAC = {
+								enabled = 0;
+							};
+						};
 					};
 					564F12141D9AA785008FA5E3 = {
 						CreatedOnToolsVersion = 8.0;
@@ -399,7 +417,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -443,7 +461,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

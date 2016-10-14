@@ -120,7 +120,7 @@
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
     DBGMSG(@"%s [Main=%@]", __FUNCTION__, [NSThread isMainThread] ? @"YES" : @"NO ");
-    if (central.state != CBCentralManagerStatePoweredOn) {
+    if (central.state != CBManagerStatePoweredOn) {
         DBGMSG(@"%s state(%d) In a real app, you'd deal with all the states correctly", __func__, (int)central.state);
         return;
     }
@@ -159,12 +159,12 @@
            (int)RSSI.integerValue);
     if (RSSI.integerValue > -15) {
         DBGMSG(@"%s Reject any where the value is above reasonable range", __func__);
-        return;
+        //return;
     }
     
     if (RSSI.integerValue < -35) {
         DBGMSG(@"%s Reject if the signal strength is too low to be close enough (Close is around -22dB)", __func__);
-        return;
+        //return;
     }
     
     DBGMSG(@"Discovered %@ at %@", peripheral.name, RSSI);

@@ -1,14 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Wibree" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +18,110 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自分の識別子:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWF-7m-ocm">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UUID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAR-Tp-FNG">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="見つけた識別子:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwk-ac-DIu">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UUID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIg-Wb-uxK">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WibreePeripheral" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KM9-T9-0ok">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BeaconCentral" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Viu-W9-vyL">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BeaconPeripheral" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1S-S1-Sbl">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7k-DL-3kJ">
+                                <connections>
+                                    <action selector="toggleWibreeCentralWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="upp-zA-lBf"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tCO-qO-UEa">
+                                <connections>
+                                    <action selector="toggleWibreePeripheralWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="EUN-Ee-3Fa"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hce-5w-O1X">
+                                <connections>
+                                    <action selector="toggleBeaconCentralWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="NGc-cl-t8c"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gmi-4s-jgH">
+                                <connections>
+                                    <action selector="toggleBeaconPeripheralWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="lco-yx-pUf"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WibreeCentral" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ri7-5e-TgX">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tCO-qO-UEa" firstAttribute="leading" secondItem="KM9-T9-0ok" secondAttribute="trailing" constant="28" id="0vp-hv-w26"/>
+                            <constraint firstItem="QAR-Tp-FNG" firstAttribute="top" secondItem="yWF-7m-ocm" secondAttribute="bottom" constant="8" id="1Kj-kh-Usy"/>
+                            <constraint firstItem="QAR-Tp-FNG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="25v-or-Cfw"/>
+                            <constraint firstItem="yIg-Wb-uxK" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="3tK-C1-QkZ"/>
+                            <constraint firstItem="gwk-ac-DIu" firstAttribute="top" secondItem="QAR-Tp-FNG" secondAttribute="bottom" constant="8" id="4N8-7v-4dJ"/>
+                            <constraint firstItem="gwk-ac-DIu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="85v-Rf-ms0"/>
+                            <constraint firstItem="yIg-Wb-uxK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="D4g-UY-wL9"/>
+                            <constraint firstItem="M7k-DL-3kJ" firstAttribute="leading" secondItem="ri7-5e-TgX" secondAttribute="trailing" constant="50" id="Gbp-UG-Hj9"/>
+                            <constraint firstItem="Viu-W9-vyL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="Jfa-iC-jnG"/>
+                            <constraint firstItem="O1S-S1-Sbl" firstAttribute="top" secondItem="Viu-W9-vyL" secondAttribute="bottom" constant="18" id="TYF-nd-FDH"/>
+                            <constraint firstItem="hce-5w-O1X" firstAttribute="leading" secondItem="Viu-W9-vyL" secondAttribute="trailing" constant="47" id="VBx-uA-puI"/>
+                            <constraint firstItem="yWF-7m-ocm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="VUu-6D-1z3"/>
+                            <constraint firstItem="yWF-7m-ocm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="WXM-JX-sy8"/>
+                            <constraint firstItem="O1S-S1-Sbl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="XPf-2z-8fz"/>
+                            <constraint firstItem="KM9-T9-0ok" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="YRr-0x-5cg"/>
+                            <constraint firstItem="tCO-qO-UEa" firstAttribute="top" secondItem="M7k-DL-3kJ" secondAttribute="bottom" constant="8" id="YpM-uj-7cF"/>
+                            <constraint firstItem="ri7-5e-TgX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="Z4W-tZ-gwh"/>
+                            <constraint firstItem="hce-5w-O1X" firstAttribute="top" secondItem="tCO-qO-UEa" secondAttribute="bottom" constant="11" id="fHa-ee-dcO"/>
+                            <constraint firstItem="QAR-Tp-FNG" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="hGI-eI-qu6"/>
+                            <constraint firstItem="Gmi-4s-jgH" firstAttribute="top" secondItem="hce-5w-O1X" secondAttribute="bottom" constant="8" id="jxk-5f-Ood"/>
+                            <constraint firstItem="yIg-Wb-uxK" firstAttribute="top" secondItem="gwk-ac-DIu" secondAttribute="bottom" constant="8" id="kVC-OB-Jad"/>
+                            <constraint firstItem="Viu-W9-vyL" firstAttribute="top" secondItem="KM9-T9-0ok" secondAttribute="bottom" constant="21" id="mgy-JJ-7AY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Gmi-4s-jgH" secondAttribute="bottom" constant="20" id="own-za-fjH"/>
+                            <constraint firstItem="KM9-T9-0ok" firstAttribute="top" secondItem="ri7-5e-TgX" secondAttribute="bottom" constant="18" id="tKj-MU-SKm"/>
+                            <constraint firstItem="Gmi-4s-jgH" firstAttribute="leading" secondItem="O1S-S1-Sbl" secondAttribute="trailing" constant="25" id="uza-gG-bNw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="O1S-S1-Sbl" secondAttribute="bottom" constant="25" id="vnh-vw-33U"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="beaconCentralSwitch" destination="hce-5w-O1X" id="bxs-K2-MKM"/>
+                        <outlet property="beaconPeripheralSwitch" destination="Gmi-4s-jgH" id="Rka-JT-gCu"/>
+                        <outlet property="myUniqueIdentifierLabel" destination="QAR-Tp-FNG" id="f2H-li-XCm"/>
+                        <outlet property="wibreeCentralSwitch" destination="M7k-DL-3kJ" id="dkc-Qq-2fK"/>
+                        <outlet property="wibreePeripheralSwitch" destination="tCO-qO-UEa" id="eTK-uk-UnQ"/>
+                        <outlet property="yourUniqueIdentifierLabel" destination="yIg-Wb-uxK" id="oAE-qS-uMu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
     </scenes>
 </document>

@@ -73,7 +73,8 @@
     
     // Start up the CBPeripheralManager
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
-                                                                     queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+                                                                     queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+                                                                   options:nil];
     if (! self.peripheralManager) {
         /* CBPeripheralManagerの初期化失敗 */
         self.state = kWibreePeripheralStateError;
@@ -82,9 +83,14 @@
         return;
     }
     
+    /*
     // All we advertise is our service's UUID
     DBGMSG(@"%s start advertising: service's UUID(%@)", __func__, Document.WIBREE_SERVICE_UUID);
-    [self.peripheralManager startAdvertising:@{ CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:Document.WIBREE_SERVICE_UUID]] }];
+    [self.peripheralManager startAdvertising:@{
+                                               CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:Document.WIBREE_SERVICE_UUID]],
+                                               CBAdvertisementDataLocalNameKey : @"Wibree Peripheral"
+                                               }];
+     */
 }
 
 - (void)cancel
@@ -125,13 +131,22 @@
 {
     DBGMSG(@"%s", __func__);
     // Opt out from any other state
-    if (peripheral.state != CBPeripheralManagerStatePoweredOn) {
+    if (peripheral.state != CBManagerStatePoweredOn) {
         DBGMSG(@"%s state(%d) not power on", __func__, (int)peripheral.state);
         return;
     }
     
     // We're in CBPeripheralManagerStatePoweredOn state...
     DBGMSG(@"%s self.peripheralManager powered on.", __func__);
+    
+/* DEBUG */
+    // All we advertise is our service's UUID
+    DBGMSG(@"%s start advertising: service's UUID(%@)", __func__, Document.WIBREE_SERVICE_UUID);
+    [self.peripheralManager startAdvertising:@{
+                                               CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:Document.WIBREE_SERVICE_UUID]],
+                                               CBAdvertisementDataLocalNameKey : @"Wibree Peripheral"
+                                               }];
+/* DEBUG */
     
     // ... so build our service.
     
@@ -150,6 +165,12 @@
     
     // And add it to the peripheral manager
     [self.peripheralManager addService:transferService];
+}
+
+- (void)peripheralManagerDidStartAdvertising:(CBPeripheralManager *)peripheral
+                                       error:(nullable NSError *)error
+{
+    DBGMSG(@"%s peripheral:%@ error:%@", __func__, peripheral, error);
 }
 
 /** Catch when someone subscribes to our characteristic, then start sending them data
