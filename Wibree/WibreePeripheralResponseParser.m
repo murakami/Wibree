@@ -82,15 +82,6 @@
                      localizedDescription:@"CBPeripheralManagerの初期化に失敗しました。"];
         return;
     }
-    
-    /*
-    // All we advertise is our service's UUID
-    DBGMSG(@"%s start advertising: service's UUID(%@)", __func__, Document.WIBREE_SERVICE_UUID);
-    [self.peripheralManager startAdvertising:@{
-                                               CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:Document.WIBREE_SERVICE_UUID]],
-                                               CBAdvertisementDataLocalNameKey : @"Wibree Peripheral"
-                                               }];
-     */
 }
 
 - (void)cancel
@@ -139,15 +130,6 @@
     // We're in CBPeripheralManagerStatePoweredOn state...
     DBGMSG(@"%s self.peripheralManager powered on.", __func__);
     
-/* DEBUG */
-    // All we advertise is our service's UUID
-    DBGMSG(@"%s start advertising: service's UUID(%@)", __func__, Document.WIBREE_SERVICE_UUID);
-    [self.peripheralManager startAdvertising:@{
-                                               CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:Document.WIBREE_SERVICE_UUID]],
-                                               CBAdvertisementDataLocalNameKey : @"Wibree Peripheral"
-                                               }];
-/* DEBUG */
-    
     // ... so build our service.
     
     // Start with the CBMutableCharacteristic
@@ -165,6 +147,13 @@
     
     // And add it to the peripheral manager
     [self.peripheralManager addService:transferService];
+    
+    // All we advertise is our service's UUID
+    DBGMSG(@"%s start advertising: service's UUID(%@)", __func__, Document.WIBREE_SERVICE_UUID);
+    [self.peripheralManager startAdvertising:@{
+                                               CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:Document.WIBREE_SERVICE_UUID]],
+                                               CBAdvertisementDataLocalNameKey : @"Wibree Peripheral"
+                                               }];
 }
 
 - (void)peripheralManagerDidStartAdvertising:(CBPeripheralManager *)peripheral
