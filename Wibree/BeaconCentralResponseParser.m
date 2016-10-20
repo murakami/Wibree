@@ -74,9 +74,37 @@
     
     /* ビーコン領域を生成 */
     NSUUID  *uuid = [[NSUUID alloc] initWithUUIDString:Document.BEACON_SERVICE_UUID];
+    DBGMSG(@"%s uuid(%@)", __func__, uuid);
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"demo.Wibree.BeaconCentralResponseParser"];
+    DBGMSG(@"%s beaconRegion(%@)", __func__, self.beaconRegion);
     if (! self.beaconRegion) {
         /* ビーコン領域の初期化失敗 */
+        DBGMSG(@"%s ビーコン領域の初期化失敗", __func__);
+        self.state = kBeaconCentralStateError;
+        self.error = [self _errorWithCode:kBeaconCentralResponseParserGenericError
+                     localizedDescription:@"ビーコン領域の初期化に失敗しました。"];
+        self.locationManager = nil;
+        return;
+    }
+    
+    /* 指定したクラスで領域の観測がハードウェアでサポートされているかどうか? */
+    if (![CLLocationManager isMonitoringAvailableForClass:[self.beaconRegion class]]) {
+        /* このデバイスでは領域観測を使用できません */
+        DBGMSG(@"%s このデバイスでは領域観測を使用できません", __func__);
+        self.state = kBeaconCentralStateError;
+        self.error = [self _errorWithCode:kBeaconCentralResponseParserGenericError
+                     localizedDescription:@"ビーコン領域の初期化に失敗しました。"];
+        self.locationManager = nil;
+        return;
+    }
+    
+    /* アプリケーションに現在位置情報サービスを使用する承認が与えられているかどうかを判別 */
+    [self.locationManager requestAlwaysAuthorization];
+    //[self.locationManager requestWhenInUseAuthorization];
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    if ((status != kCLAuthorizationStatusAuthorizedAlways) && (status != kCLAuthorizationStatusAuthorizedWhenInUse)) {
+        DBGMSG(@"%s アプリケーションに現在位置情報サービスを使用する承認が与えられていません", __func__);
+        DBGMSG(@"%s authorizationStatus(%d)", __func__, (int)[CLLocationManager authorizationStatus]);
         self.state = kBeaconCentralStateError;
         self.error = [self _errorWithCode:kBeaconCentralResponseParserGenericError
                      localizedDescription:@"ビーコン領域の初期化に失敗しました。"];

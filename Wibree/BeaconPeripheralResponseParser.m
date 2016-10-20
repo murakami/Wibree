@@ -85,10 +85,13 @@
         self.peripheralManager = nil;
         return;
     }
+    DBGMSG(@"%s beaconRegion:%@", __func__, self.beaconRegion);
     
+#if 0
     /* 告知開始 */
     NSDictionary    *dictionary = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     [self.peripheralManager startAdvertising:dictionary];
+#endif
 }
 
 - (void)cancel
@@ -112,6 +115,19 @@
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
 {
     DBGMSG( @"%s [Main=%@] state(%d)", __FUNCTION__, [NSThread isMainThread] ? @"YES" : @"NO ", (int)peripheral.state);
+    
+    // Opt out from any other state
+    if (peripheral.state != CBManagerStatePoweredOn) {
+        DBGMSG(@"%s state(%d) not power on", __func__, (int)peripheral.state);
+        return;
+    }
+    
+    // We're in CBPeripheralManagerStatePoweredOn state...
+    DBGMSG(@"%s self.peripheralManager powered on.", __func__);
+    
+    /* 告知開始 */
+    NSDictionary    *dictionary = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
+    [self.peripheralManager startAdvertising:dictionary];
 }
 
 #pragma mark - etc

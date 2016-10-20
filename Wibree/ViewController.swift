@@ -110,15 +110,9 @@ class ViewController: UIViewController {
                 print(#function + "state(\(state))")
                 print(#function + "beacons(\(beacons))")
                 print(#function + "region(\(region))")
-                    for beacon in beacons {
-                        print(#function + "\tbeacon(\(beacon))")
-                    }
-                
-                /* CLProximityUnknown以外のビーコンだけを取り出す */
-                let predicate = NSPredicate(format: "proximity != CLProximityUnknown")
-                let validBeacons = (beacons as NSArray).filtered(using: predicate)
-                print(#function + "validBeacons(\(validBeacons))")
-                print(#function + "validFirstBeacon(\(validBeacons[0]))")
+                for beacon in beacons {
+                    print(#function + "\tbeacon(\(beacon))")
+                }
             })
         }
         else {

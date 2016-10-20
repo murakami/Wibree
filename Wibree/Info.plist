@@ -36,6 +36,7 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
+        <string>location-services</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
@@ -50,5 +51,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Your current location may be shown on the map.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>This app will use your location information to identify nearby attractions.</string>
 </dict>
 </plist>
