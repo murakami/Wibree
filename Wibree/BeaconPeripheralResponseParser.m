@@ -86,12 +86,6 @@
         return;
     }
     DBGMSG(@"%s beaconRegion:%@", __func__, self.beaconRegion);
-    
-#if 0
-    /* 告知開始 */
-    NSDictionary    *dictionary = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
-    [self.peripheralManager startAdvertising:dictionary];
-#endif
 }
 
 - (void)cancel

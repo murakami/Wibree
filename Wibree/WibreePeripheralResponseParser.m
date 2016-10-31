@@ -72,8 +72,9 @@
     self.state = kWibreePeripheralStateAdvertising;
     
     // Start up the CBPeripheralManager
+    dispatch_queue_t dispatchQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
-                                                                     queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+                                                                     queue:dispatchQueue
                                                                    options:nil];
     if (! self.peripheralManager) {
         /* CBPeripheralManagerの初期化失敗 */
@@ -133,13 +134,15 @@
     // ... so build our service.
     
     // Start with the CBMutableCharacteristic
-    self.transferCharacteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:Document.WIBREE_CHARACTERISTIC_UUID]
+    CBUUID *caracteristicUuid = [CBUUID UUIDWithString:Document.WIBREE_CHARACTERISTIC_UUID];
+    self.transferCharacteristic = [[CBMutableCharacteristic alloc] initWithType:caracteristicUuid
                                                                      properties:CBCharacteristicPropertyNotify
                                                                           value:nil
                                                                     permissions:CBAttributePermissionsReadable];
     
     // Then the service
-    CBMutableService *transferService = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:Document.WIBREE_SERVICE_UUID]
+    CBUUID *serviceUuid = [CBUUID UUIDWithString:Document.WIBREE_SERVICE_UUID];
+    CBMutableService *transferService = [[CBMutableService alloc] initWithType:serviceUuid
                                                                        primary:YES];
     
     // Add the characteristic to the service
@@ -150,10 +153,12 @@
     
     // All we advertise is our service's UUID
     DBGMSG(@"%s start advertising: service's UUID(%@)", __func__, Document.WIBREE_SERVICE_UUID);
-    [self.peripheralManager startAdvertising:@{
-                                               CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:Document.WIBREE_SERVICE_UUID]],
-                                               CBAdvertisementDataLocalNameKey : @"Wibree Peripheral"
-                                               }];
+    NSDictionary<NSString *,id> *advertisementData =
+    @{
+      CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:Document.WIBREE_SERVICE_UUID]],
+      CBAdvertisementDataLocalNameKey : @"Wibree Peripheral"
+    };
+    [self.peripheralManager startAdvertising:advertisementData];
 }
 
 - (void)peripheralManagerDidStartAdvertising:(CBPeripheralManager *)peripheral

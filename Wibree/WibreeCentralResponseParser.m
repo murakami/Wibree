@@ -67,8 +67,9 @@
     self.state = kWibreeCentralStateScanning;
     
     // Start up the CBCentralManager
+    dispatch_queue_t dispatchQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self
-                                                               queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+                                                               queue:dispatchQueue];
     if (! self.centralManager) {
         /* CBCentralManagerの初期化失敗 */
         self.state = kWibreeCentralStateError;
@@ -137,8 +138,10 @@
 - (void)scan
 {
     DBGMSG( @"%s [Main=%@]", __FUNCTION__, [NSThread isMainThread] ? @"YES" : @"NO ");
-    [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:Document.WIBREE_SERVICE_UUID]]
-                                                options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
+    NSArray<CBUUID *> *serviceUUIDs = @[[CBUUID UUIDWithString:Document.WIBREE_SERVICE_UUID]];
+    NSDictionary<NSString *,id> *options = @{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES };
+    [self.centralManager scanForPeripheralsWithServices:serviceUUIDs
+                                                options:options];
     
     DBGMSG(@"%s Scanning started: service's UUID(%@)", __func__, Document.WIBREE_SERVICE_UUID);
 }
@@ -178,6 +181,10 @@
         // And connect
         DBGMSG(@"Connecting to peripheral %@", peripheral);
         [self.centralManager connectPeripheral:peripheral options:nil];
+        
+        // Stop scanning
+        [self.centralManager stopScan];
+        DBGMSG(@"Scanning stopped");
     }
 }
 
@@ -197,10 +204,6 @@ didFailToConnectPeripheral:(CBPeripheral *)peripheral
   didConnectPeripheral:(CBPeripheral *)peripheral
 {
     DBGMSG(@"%s Peripheral Connected", __func__);
-    
-    // Stop scanning
-    [self.centralManager stopScan];
-    DBGMSG(@"Scanning stopped");
     
     // Clear the data that we may already have
     [self.data setLength:0];
@@ -226,8 +229,9 @@ didFailToConnectPeripheral:(CBPeripheral *)peripheral
     // Discover the characteristic we want...
     
     // Loop through the newly filled peripheral.services array, just in case there's more than one.
+    NSArray<CBUUID *> *characteristicUUIDs = @[[CBUUID UUIDWithString:Document.WIBREE_CHARACTERISTIC_UUID]];
     for (CBService *service in peripheral.services) {
-        [peripheral discoverCharacteristics:@[[CBUUID UUIDWithString:Document.WIBREE_CHARACTERISTIC_UUID]] forService:service];
+        [peripheral discoverCharacteristics:characteristicUUIDs forService:service];
     }
 }
 
